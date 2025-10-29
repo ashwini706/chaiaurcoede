@@ -1,0 +1,27 @@
+import express from 'express';
+const app=express();
+app.get('/',(req,res)=>{
+    res.send('index is ready')
+});
+app.get('/jokes',(req,res)=>{
+    const jokes=[{
+        id:1,
+        title:'A joke',
+        content:'this is a joke'
+    },
+{
+        id:2,
+        title:'A joke',
+        content:'this is a second joke'
+    },
+{
+        id:3,
+        title:'A joke',
+        content:'this is a third joke'
+    }];
+    res.send(jokes)
+});
+const port=process.env.PORT||3000;
+app.listen(port,()=>{
+    console.log(`index at http://localhost:${port}`);
+}); 
